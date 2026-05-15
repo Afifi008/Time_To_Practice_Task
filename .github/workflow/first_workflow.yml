@@ -6,10 +6,14 @@ jobs:
     steps:
     - name: get the code
       uses: actions/checkout@v3 
+    - name: install dependenies
+      run: npm ci
     - name: Run test script
-      uses: npm test
+      uses: npm run test
     - name: Run Lints script
-      uses: npm lint
+      uses: npm run lint
+    - name: building
+      run: npm run build
   Deploy:
     needs: [test_and_lints]
     runs-on: ubuntu-latest
