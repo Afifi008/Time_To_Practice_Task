@@ -9,9 +9,9 @@ jobs:
     - name: install dependenies
       run: npm ci
     - name: Run test script
-      uses: npm run test
+      run: npm run test
     - name: Run Lints script
-      uses: npm run lint
+      run: npm run lint
     - name: building
       run: npm run build
   Deploy:
