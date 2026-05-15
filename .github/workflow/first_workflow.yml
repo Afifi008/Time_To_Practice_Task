@@ -1,0 +1,23 @@
+name: first_worklow
+on: push
+jobs:
+  test_and_lints:
+    runs-on: ubuntu-latest
+    steps:
+    - name: get the code
+      uses: actions/checkout@v3 
+    - name: Run test script
+      uses: npm test
+    - name: Run Lints script
+      uses: npm lint
+  Deploy:
+    needs: [test_and_lints]
+    runs-on: ubuntu-latest
+    steps:
+    - name: get the code
+      uses: actions/checkout@v3 
+    - name: build project
+      run: echo "Deploying ... . ."
+
+
+
